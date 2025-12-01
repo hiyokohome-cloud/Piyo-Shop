@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐣 PiyoPiyo Shop 🐣</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: "Poppins", "M PLUS Rounded 1c", sans-serif;
+        background: radial-gradient(circle at 50% 50%, rgba(0,145,255,0.7), rgba(0,108,255,0.3), rgba(255,255,0,0.1));
+        overflow-x: hidden;
+        animation: bgmove 8s infinite alternate ease-in-out;
+    }
+
+    @keyframes bgmove {
+        0% { background-position: 0% 0%; }
+        100% { background-position: 100% 100%; }
+    }
+
+    header {
+        text-align: center;
+        padding: 25px 10px;
+        font-size: 35px;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0px 0px 10px #70cfff;
+    }
+
+    .search-box {
+        width: 90%;
+        max-width: 500px;
+        margin: 0 auto 30px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .search-box input {
+        width: 100%;
+        padding: 13px;
+        border-radius: 30px;
+        border: none;
+        outline: none;
+        font-size: 17px;
+        text-align: center;
+        background: #ffffffd0;
+        box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    }
+
+    .product-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        padding: 10px 25px 40px;
+    }
+
+    .product {
+        background: #fff;
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        transition: .3s;
+        border: 3px solid #4fc5ff;
+    }
+
+    .product:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px rgba(0,0,0,0.18);
+    }
+
+    .product-title {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #0077ff;
+    }
+
+    .product-desc {
+        font-size: 15px;
+        color: #333;
+        margin-bottom: 10px;
+        line-height: 1.5em;
+    }
+
+    .price {
+        font-size: 20px;
+        font-weight: 700;
+        color: #f7b400;
+        text-shadow: 0px 0px 3px #ffed8b;
+    }
+</style>
+</head>
+
+<body>
+
+<header>🐣 PiyoPiyo 商品リスト 🐣</header>
+
+<div class="search-box">
+    <input type="text" id="search" placeholder="🔍 商品を検索する">
+</div>
+
+<div class="product-list" id="productList">
+    <!-- ★ ここに商品を追加していく ★ -->
+    <div class="product">
+        <div class="product-title">サイトの作り方（PC）</div>
+        <div class="product-desc">初心者でも1からサイトが作れる完全版ガイド。</div>
+        <div class="price">¥30</div>
+    </div>
+
+    <div class="product">
+        <div class="product-title">Discord Botの作り方(PC)</div>
+        <div class="product-desc">招待リンク生成/コマンド/メッセージ返信など全対応！</div>
+        <div class="price">¥40</div>
+    </div>
+
+    </div>
+
+    <div class="product">
+        <div class="product-title">Discord Botの作り方(ios)</div>
+        <div class="product-desc">招待リンク生成/コマンド/メッセージ返信など全対応！</div>
+        <div class="price">¥20</div>
+    </div>
+
+    </div>
+
+    <div class="product">
+        <div class="product-title">サイトの作り方(PC)</div>
+        <div class="product-desc">初心者でも1からサイトが作れる完全版ガイド。</div>
+        <div class="price">¥30</div>
+    </div>
+</div>
+
+<script>
+    const search = document.getElementById("search");
+    const products = document.querySelectorAll(".product");
+
+    search.addEventListener("input", () => {
+        const word = search.value.toLowerCase();
+        products.forEach(p => {
+            p.style.display = p.innerText.toLowerCase().includes(word) ? "" : "none";
+        });
+    });
+</script>
+
+</body>
+</html>
